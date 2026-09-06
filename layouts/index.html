@@ -1,0 +1,20 @@
+{{ define "main" }}
+<section class="hero">
+  <img class="portrait" src="{{ "images/Jeske_Portrait2020_Office_365.jpg" | relURL }}" alt="Nico Jeske" width="220" height="220">
+  <div class="hero-text">
+    {{ .Content }}
+  </div>
+</section>
+
+<section class="projects">
+  <h2>Projects</h2>
+  <ul class="post-list">
+    {{ range (where .Site.RegularPages "Section" "posts").ByDate.Reverse }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <span class="meta">{{ .Date.Format "January 2, 2006" }}</span>
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}

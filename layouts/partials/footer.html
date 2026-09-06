@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="social">
+      <a href="{{ .Site.Params.github }}" rel="me" target="_blank">GitHub</a>
+      <a href="{{ .Site.Params.twitter }}" rel="me" target="_blank">Twitter</a>
+      <a href="{{ .Site.Params.linkedin }}" rel="me" target="_blank">LinkedIn</a>
+      <a href="mailto:{{ .Site.Params.email }}">Email</a>
+    </div>
+    <div class="legal">
+      <a href="{{ "/impressum/" | relURL }}">Impressum</a>
+      <a href="{{ "/privacy-policy/" | relURL }}">Privacy Policy</a>
+      <span>&copy; {{ now.Format "2006" }} Nico Jeske</span>
+    </div>
+  </div>
+</footer>

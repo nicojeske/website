@@ -1,0 +1,47 @@
+baseURL = "https://nicojeske.de/"
+title = "Nico Jeske"
+
+[languages.en]
+  locale = "en-us"
+  label = "English"
+  weight = 1
+
+[permalinks]
+  posts = "/:slug/"
+
+[params]
+  description = "Nico Jeske - Developer"
+  email = "nico.jeske@gmail.com"
+  github = "https://github.com/nicojeske"
+  twitter = "https://twitter.com/Nico_Jeske"
+  linkedin = "https://www.linkedin.com/in/nicojeske/"
+  kofi = "https://ko-fi.com/nicojeske"
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact/"
+  weight = 3
+
+[[menu.main]]
+  name = "Impressum"
+  url = "/impressum/"
+  weight = 4
+
+disableKinds = ["taxonomy", "term"]
+
+[taxonomies]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
