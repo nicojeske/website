@@ -6,8 +6,11 @@ ARG HUGO_SHA256=f43494894cdf4a8630a201d5c828051c77f523cc66bb3938b30806835470ac20
 RUN apk add --no-cache curl tar \
   && curl -fsSL -o /tmp/hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.tar.gz" \
   && echo "${HUGO_SHA256}  /tmp/hugo.tar.gz" | sha256sum -c - \
-  && tar -xzf /tmp/hugo.tar.gz -C /usr/local/bin hugo \
-  && rm /tmp/hugo.tar.gz
+  && mkdir -p /tmp/hugo-extract \
+  && tar -xzf /tmp/hugo.tar.gz -C /tmp/hugo-extract \
+  && install -m 0755 /tmp/hugo-extract/hugo /usr/local/bin/hugo \
+  && rm -rf /tmp/hugo.tar.gz /tmp/hugo-extract \
+  && hugo version
 
 WORKDIR /src
 COPY . .
