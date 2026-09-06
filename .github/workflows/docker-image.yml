@@ -42,6 +42,11 @@ jobs:
           cache-to: type=gha,mode=max
 
       - name: Generate artifact attestation
+        # Build provenance attestations can't be persisted for a private
+        # repo on a personal account (GitHub API limitation), so don't fail
+        # the whole run over it. Works automatically if this repo ever
+        # becomes public.
+        continue-on-error: true
         uses: actions/attest-build-provenance@v1
         with:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
